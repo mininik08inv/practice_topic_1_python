@@ -62,11 +62,14 @@ class ObjList:
         return self.__data
 
 
+lst = LinkedList()
+
 obj = ObjList("first data")
 obj_2 = ObjList("second data")
-lst = LinkedList()
+
 lst.add_obj(obj)
 lst.add_obj(obj_2)
 lst.add_obj(ObjList("other data"))
+
 result = lst.get_data()
-print(result)
+# print(result)
