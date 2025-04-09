@@ -5,7 +5,7 @@ class Cell:
     def __init__(self):
         self.around_mines = 0
         self.mine = False
-        self.fl_open = False
+        self.fl_open = True
 
 
 class GamePole:
@@ -14,7 +14,7 @@ class GamePole:
         self.M = M
         self.pole = self.init()
         self.put_mines()
-        # self.calc_around_mines() #По условию подсчет не требуется
+        self.calc_around_mines()
 
     def init(self):
         return [[Cell() for _ in range(self.N)] for _ in range(self.N)]
@@ -46,8 +46,7 @@ class GamePole:
     def show(self):
         for row in self.pole:
             for cell in row:
-                # if not cell.fl_open:
-                if not cell.fl_open and not cell.mine:  # Чтобы соответствовало условию задачи
+                if not cell.fl_open:
                     print('#', end=' ')
                 elif cell.mine:
                     print('*', end=' ')
